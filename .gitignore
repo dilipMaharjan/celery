@@ -4,4 +4,4 @@ lib
 pip-selfcheck.json
 .vscode
 *.pyc
-__pycache__
+src/__pycache__
