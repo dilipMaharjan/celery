@@ -1,5 +1,11 @@
-from .celery import app
+from celery import Celery
 import random
+
+app=Celery('tasks',broker='amqp://localhost//')
+
+@app.task
+def reverse(string):
+    return string[::-1]
 
 @app.task()
 def say_hello():
@@ -15,7 +21,3 @@ def read():
     file=open("src/read.txt","r")
     if file.readline() is None:
         print("Finished.")
-
-read.apply_async(retry=True)
-add.delay(random.randint(0,1),5)
-say_hello.delay()
