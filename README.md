@@ -1,5 +1,5 @@
 Configurations steps:
-1.Install rabbitmq-server
+1.Install rabbitmq-server(message brokers)
 -sudo apt-get install rabbitmq-server
 2.Install Celery
 -pip install celery

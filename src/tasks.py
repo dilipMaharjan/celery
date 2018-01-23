@@ -1,7 +1,4 @@
-from celery import Celery
-import random
-
-app=Celery('tasks',broker='amqp://localhost//')
+from config import app
 
 @app.task
 def reverse(string):
@@ -15,9 +12,3 @@ def say_hello():
 def add(x,y):
     return x+y
 
-@app.task
-def read():
-    print("yo")
-    file=open("src/read.txt","r")
-    if file.readline() is None:
-        print("Finished.")
